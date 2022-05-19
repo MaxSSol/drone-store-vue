@@ -2,7 +2,9 @@ export default {
     actions: {
         fetchProductFromCart({ commit }) {
             const products = localStorage.getItem('droneCart');
-            commit('setProductsToCart', JSON.parse(products))
+            if (JSON.parse(products) !== null) {
+                commit('setProductsToCart', JSON.parse(products));
+            }
         }
     },
     mutations: {
@@ -16,7 +18,7 @@ export default {
         },
 
         getCountCartProducts(state) {
-            return state.cart.length;
+            return state.cart.length === 0 ? 0 : state.cart.length;
         }
     },
     state: {

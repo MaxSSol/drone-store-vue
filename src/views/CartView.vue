@@ -1,13 +1,13 @@
 <template>
-  <div class="home">
-    Home
-  </div>
+  <h1>Cart</h1>
 </template>
 
 <script>
-
-
 export default {
-  name: 'HomeView',
+  name: "CartView"
 }
 </script>
+
+<style scoped>
+
+</style>
