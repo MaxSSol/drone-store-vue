@@ -1,14 +1,12 @@
 import { createStore } from 'vuex'
+import Product from '@/store/modules/Product';
+import Favorite from '@/store/modules/Favorite';
+import Cart from '@/store/modules/Cart';
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    Product,
+    Favorite,
+    Cart
   }
 })
