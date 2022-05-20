@@ -1,10 +1,17 @@
 <template>
-  <h1>Favorite</h1>
+  <div class="favorites">
+    <div class="container">
+      <h1>Список обраного</h1>
+      <favorite-list></favorite-list>
+    </div>
+  </div>
 </template>
 
 <script>
+import FavoriteList from "@/components/Favorites/FavoriteList";
 export default {
-  name: "FavoritesView"
+  name: "FavoritesView",
+  components: {FavoriteList}
 }
 </script>
 

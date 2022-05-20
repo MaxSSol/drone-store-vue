@@ -19,6 +19,10 @@ export default {
 
         checkFavoriteById: state => id => {
             return !!state.favorites.find(f => f.product_id === id);
+        },
+
+        getFavoriteProducts(state) {
+            return state.favorites;
         }
     },
     state: {
