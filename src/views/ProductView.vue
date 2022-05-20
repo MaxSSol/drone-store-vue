@@ -9,7 +9,7 @@ export default {
   components: {Product},
   props: {
     id: {
-      type: Number,
+      type: [Number, String],
       require: true
     }
   }
