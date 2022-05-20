@@ -15,9 +15,13 @@ export default {
     getters: {
         getCountFavorites(state) {
             return state.favorites.length;
+        },
+
+        checkFavoriteById: state => id => {
+            return !!state.favorites.find(f => f.product_id === id);
         }
     },
     state: {
-        favorites: []
+        favorites: [],
     }
 }
