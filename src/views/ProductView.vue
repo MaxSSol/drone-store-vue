@@ -1,10 +1,18 @@
 <template>
-  <h1>Product</h1>
+  <product :product_id="id"></product>
 </template>
 
 <script>
+import Product from "@/components/Products/Product";
 export default {
-  name: "ProductView"
+  name: "ProductView",
+  components: {Product},
+  props: {
+    id: {
+      type: [Number, String],
+      require: true
+    }
+  }
 }
 </script>
 

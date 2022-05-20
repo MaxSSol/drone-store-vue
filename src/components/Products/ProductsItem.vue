@@ -11,23 +11,23 @@
         {{ product.price }} грн
       </p>
       <div class="product-body-buttons">
-        <router-link :to="{name: 'product', params: {'id': product.product_id}}" class="product-body-btn">
+        <router-link :to="{name: 'product', params: {id: product.product_id}}" class="product-body-btn">
           Детальніше
         </router-link>
-        <button
+        <favorite-btn
             class="product-body-favorite-btn"
             v-if="checkFavoriteById(product.product_id)"
             @click="removeFromFavorite(product.product_id)"
         >
           <img class="favorite-icon" src="@/assets/favorite.png" alt="Обране">
-        </button>
-        <button
+        </favorite-btn>
+        <favorite-btn
             class="product-body-favorite-btn"
             v-else
             @click="addToFavorite(product.product_id)"
         >
           <img class="favorite-icon" src="@/assets/unfavorite.png" alt="Обране">
-        </button>
+        </favorite-btn>
       </div>
     </div>
   </div>
@@ -36,17 +36,14 @@
 <script>
 import {mapGetters, mapActions} from "vuex";
 import axios from "axios";
+import FavoriteBtn from "@/components/UI/FavoriteBtn";
 
 export default {
   name: "ProductsItem",
+  components: {FavoriteBtn},
   props: [
     'product'
   ],
-  data() {
-    return {
-      favorites: true
-    }
-  },
   computed: {
     ...mapGetters(['checkFavoriteById'])
   },
@@ -88,13 +85,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.product-body-favorite-btn {
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  margin-left: 20px;
 }
 
 .product-body-btn {

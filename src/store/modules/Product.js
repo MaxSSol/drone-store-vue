@@ -15,6 +15,10 @@ export default {
     getters: {
         getAllProducts(state) {
             return state.products;
+        },
+
+        getProductById: state => id => {
+            return state.products.find(p => p.product_id === id);
         }
     },
     state: {

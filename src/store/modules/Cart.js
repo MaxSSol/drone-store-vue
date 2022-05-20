@@ -18,7 +18,8 @@ export default {
         },
 
         getCountCartProducts(state) {
-            return state.cart.length === 0 ? 0 : state.cart.length;
+            let count = state.cart.map(p => p.amount);
+            return count.reduce((a, b) => a + b, 0);
         }
     },
     state: {
