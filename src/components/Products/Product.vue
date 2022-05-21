@@ -88,10 +88,8 @@ export default {
     addToCart() {
       const product = {
         product_id: Number(this.product_id),
-        title: this.product.title,
         amount: 1,
-        price: this.product.price,
-        filename: this.product.filename
+        checked: false
       };
 
       let products = localStorage.getItem('droneCart');

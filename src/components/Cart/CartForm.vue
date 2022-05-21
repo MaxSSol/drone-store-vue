@@ -1,7 +1,7 @@
 <template>
   <div class="customer-info">
     <h3>Покупець</h3>
-    <div>
+    <Form @submit.prevent="addOrder">
       <div class="input-group">
         <input class="customer-input" type="email" id="customer-email">
         <label for="customer-email">Email</label>
@@ -21,11 +21,13 @@
       <div class="btn-group">
         <button class="customer-submit">Оформити замовлення</button>
       </div>
-    </div>
+    </Form>
   </div>
 </template>
 
 <script>
+import {Field, Form} from 'vee-validate';
+
 export default {
   name: "CartForm"
 }

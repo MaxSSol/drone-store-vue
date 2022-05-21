@@ -13,7 +13,8 @@
       <tbody>
         <cart-item v-for="product in getProductsFromCart"
           :key="product.product_id"
-          :product="product"
+          :cart-product="product"
+          :product="getProductById(product.product_id)"
         >
         </cart-item>
       </tbody>
@@ -28,10 +29,11 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "CartList",
   components: {CartItem},
-  computed: mapGetters(['getProductsFromCart']),
-  methods: mapActions(['fetchProductFromCart']),
+  computed: mapGetters(['getProductsFromCart', 'getProductById']),
+  methods: mapActions(['fetchProductFromCart', 'fetchAllProducts']),
   mounted() {
     this.fetchProductFromCart();
+    this.fetchAllProducts();
   }
 }
 </script>
