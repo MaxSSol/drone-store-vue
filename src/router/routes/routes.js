@@ -36,7 +36,8 @@ export default  [
     {
         path: '/products/category/:id',
         name: 'products-category',
-        component: CategoryProductsVies
+        component: CategoryProductsVies,
+        props: true
     },
     {
         path: '/favorites',
