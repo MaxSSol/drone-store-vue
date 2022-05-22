@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import {mapActions} from "vuex";
 
 export default {
   name: "CartItem",
@@ -43,8 +43,23 @@ export default {
       localStorage.setItem('droneCart', JSON.stringify(products));
       this.fetchProductFromCart();
     }
+  },
+  watch: {
+    'cartProduct.amount'(newVal) {
+      let storage = localStorage.getItem('droneCart');
+      let products = JSON.parse(storage);
+      products.find(p => {
+        if (p.product_id === this.cartProduct.product_id) {
+          p.amount = newVal;
+          return p;
+        }
+        return p;
+      })
+      localStorage.removeItem('droneCart');
+      localStorage.setItem('droneCart', JSON.stringify(products));
+      this.fetchProductFromCart();
+    }
   }
-
 }
 </script>
 
